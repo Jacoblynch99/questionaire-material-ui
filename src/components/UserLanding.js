@@ -24,15 +24,16 @@ import {
 import React, { useState } from 'react'
 
 const UserLanding = (props) => {
-    const [value, setValue] = useState(null)
+    const [value, setValue] = useState('white')
     const [pass, setPass] = useState(false)
     const [message, setMessage] = useState(
         'Good morrow traveler, make the right choice or DIE'
     )
-    const [color1, setColor1] = useState('null')
-    const [color2, setColor2] = useState('null')
-    const [color3, setColor3] = useState('null')
-    const [color4, setColor4] = useState('null')
+    const [color1, setColor1] = useState('white')
+    const [color2, setColor2] = useState('white')
+    const [color3, setColor3] = useState('white')
+    const [color4, setColor4] = useState('white')
+    const [combinations, setCombinations] = useState([])
 
     const handleChange = (event) => {
         setValue(event.target.value)
@@ -52,8 +53,61 @@ const UserLanding = (props) => {
     }
 
     const submitColor = (color) => {
-        if (color1 === null) {
+        if (color1 === 'white') {
             setColor1(color)
+        } else if (color2 === 'white') {
+            setColor2(color)
+        } else if (color3 === 'white') {
+            setColor3(color)
+        } else if (color4 === 'white') {
+            setColor4(color)
+        } else {
+            setCombinations([
+                ...combinations,
+                <div item style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div
+                        style={{
+                            height: '25px',
+                            width: '25px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: color1,
+                        }}
+                    ></div>
+                    <div
+                        style={{
+                            height: '25px',
+                            width: '25px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: color2,
+                        }}
+                    ></div>
+                    <div
+                        style={{
+                            height: '25px',
+                            width: '25px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: color3,
+                        }}
+                    ></div>
+                    <div
+                        style={{
+                            height: '25px',
+                            width: '25px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: color4,
+                        }}
+                    ></div>
+                </div>,
+            ])
+
+            setColor1('white')
+            setColor2('white')
+            setColor3('white')
+            setColor4('white')
         }
     }
 
@@ -203,6 +257,10 @@ const UserLanding = (props) => {
                         }}
                     ></Button>
                 </Grid>
+
+                {combinations.map((item, idx) => (
+                    <div key={`${item}${idx}`}>{item}</div>
+                ))}
             </Grid>
         </Container>
     )
