@@ -58,7 +58,7 @@ const UserLanding = (props) => {
                 <Grid item>
                     <form onSubmit={handleSubmit}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">{value}</FormLabel>
+                            <h2>Answer the best way you can</h2>
                             <RadioGroup
                                 aria-label="questionnaire"
                                 name="questionnaire"
@@ -97,6 +97,27 @@ const UserLanding = (props) => {
                             </Button>
                         </FormControl>
                     </form>
+                </Grid>
+
+                {/* ------------------- PUZZLE BELOW --------------------- */}
+
+                <Grid item style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div
+                        style={{
+                            height: '100px',
+                            width: '100px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                        }}
+                    ></div>
+                    <div
+                        style={{
+                            height: '100px',
+                            width: '100px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                        }}
+                    ></div>
                 </Grid>
             </Grid>
         </Container>
