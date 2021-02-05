@@ -39,6 +39,10 @@ const UserLanding = (props) => {
     const [condition4, setCondition4] = useState('red')
     const [combinations, setCombinations] = useState([])
 
+    useEffect(() => {
+        createWinCondition()
+    }, [])
+
     const handleChange = (event) => {
         setValue(event.target.value)
     }
@@ -52,6 +56,86 @@ const UserLanding = (props) => {
             setMessage('Your answer could reflect more on your stupidity')
         } else if (value === 'answer3') {
             setMessage('Are you even trying?!')
+        }
+    }
+
+    const createWinCondition = () => {
+        const first = Math.floor(Math.random() * 4)
+        const second = Math.floor(Math.random() * 4)
+        const third = Math.floor(Math.random() * 4)
+        const fourth = Math.floor(Math.random() * 4)
+
+        switch (first) {
+            case 0:
+                setCondition1('red')
+                console.log('first red')
+                break
+            case 1:
+                setCondition1('blue')
+                console.log('first blue')
+                break
+            case 2:
+                setCondition1('yellow')
+                console.log('first yellow')
+                break
+            case 3:
+                setCondition1('green')
+                console.log('first green')
+                break
+        }
+        switch (second) {
+            case 0:
+                setCondition2('red')
+                console.log('second red')
+                break
+            case 1:
+                setCondition2('blue')
+                console.log('second blue')
+                break
+            case 2:
+                setCondition2('yellow')
+                console.log('second yellow')
+                break
+            case 3:
+                setCondition2('green')
+                console.log('second green')
+                break
+        }
+        switch (third) {
+            case 0:
+                setCondition3('red')
+                console.log('third red')
+                break
+            case 1:
+                setCondition3('blue')
+                console.log('third blue')
+                break
+            case 2:
+                setCondition3('yellow')
+                console.log('third yellow')
+                break
+            case 3:
+                setCondition3('green')
+                console.log('third green')
+                break
+        }
+        switch (fourth) {
+            case 0:
+                setCondition4('red')
+                console.log('fourth red')
+                break
+            case 1:
+                setCondition4('blue')
+                console.log('fourth blue')
+                break
+            case 2:
+                setCondition4('yellow')
+                console.log('fourth yellow')
+                break
+            case 3:
+                setCondition4('green')
+                console.log('fourth green')
+                break
         }
     }
 
