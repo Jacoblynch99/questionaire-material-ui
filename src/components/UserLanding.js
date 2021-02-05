@@ -29,6 +29,10 @@ const UserLanding = (props) => {
     const [message, setMessage] = useState(
         'Good morrow traveler, make the right choice or DIE'
     )
+    const [color1, setColor1] = useState('null')
+    const [color2, setColor2] = useState('null')
+    const [color3, setColor3] = useState('null')
+    const [color4, setColor4] = useState('null')
 
     const handleChange = (event) => {
         setValue(event.target.value)
@@ -47,18 +51,37 @@ const UserLanding = (props) => {
         }
     }
 
+    const submitColor = (color) => {
+        if (color1 === null) {
+            setColor1(color)
+        }
+    }
+
     return (
-        <Container maxWidth="md">
+        <Container
+            maxWidth="md"
+            style={{
+                height: ' 100vh',
+                width: '100vw',
+            }}
+        >
             <Grid
                 container
                 direction="column"
                 justify="center"
                 alignItems="center"
             >
-                <Grid item>
+                <h2>{message}</h2>
+                <Grid
+                    item
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        flexDirection: 'column',
+                    }}
+                >
                     <form onSubmit={handleSubmit}>
                         <FormControl component="fieldset">
-                            <h2>Answer the best way you can</h2>
                             <RadioGroup
                                 aria-label="questionnaire"
                                 name="questionnaire"
@@ -67,27 +90,26 @@ const UserLanding = (props) => {
                             >
                                 <FormControlLabel
                                     value="answer1"
-                                    control={<Radio />}
+                                    control={
+                                        <Radio style={{ color: 'black' }} />
+                                    }
                                     label="Answer 1"
                                 />
                                 <FormControlLabel
                                     value="answer2"
-                                    control={<Radio />}
+                                    control={
+                                        <Radio style={{ color: 'black' }} />
+                                    }
                                     label="Answer 2"
                                 />
                                 <FormControlLabel
                                     value="answer3"
-                                    control={<Radio />}
+                                    control={
+                                        <Radio style={{ color: 'black' }} />
+                                    }
                                     label="Answer 3"
                                 />
-                                <FormControlLabel
-                                    value="disabled"
-                                    disabled
-                                    control={<Radio />}
-                                    label="(Disabled option)"
-                                />
                             </RadioGroup>
-                            <h1>{message}</h1>
                             <Button
                                 type="submit"
                                 variant="outlined"
@@ -108,6 +130,7 @@ const UserLanding = (props) => {
                             width: '100px',
                             borderStyle: 'solid',
                             margin: '5px',
+                            backgroundColor: color1,
                         }}
                     ></div>
                     <div
@@ -116,8 +139,69 @@ const UserLanding = (props) => {
                             width: '100px',
                             borderStyle: 'solid',
                             margin: '5px',
+                            backgroundColor: color2,
                         }}
                     ></div>
+                    <div
+                        style={{
+                            height: '100px',
+                            width: '100px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: color3,
+                        }}
+                    ></div>
+                    <div
+                        style={{
+                            height: '100px',
+                            width: '100px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: color4,
+                        }}
+                    ></div>
+                </Grid>
+                <Grid item style={{ display: 'flex', flexDirection: 'row' }}>
+                    <Button
+                        onClick={() => submitColor('red')}
+                        style={{
+                            height: '50px',
+                            width: '50px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: 'red',
+                        }}
+                    ></Button>
+                    <Button
+                        onClick={() => submitColor('blue')}
+                        style={{
+                            height: '50px',
+                            width: '50px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: 'blue',
+                        }}
+                    ></Button>
+                    <Button
+                        onClick={() => submitColor('green')}
+                        style={{
+                            height: '50px',
+                            width: '50px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: 'green',
+                        }}
+                    ></Button>
+                    <Button
+                        onClick={() => submitColor('yellow')}
+                        style={{
+                            height: '50px',
+                            width: '50px',
+                            borderStyle: 'solid',
+                            margin: '5px',
+                            backgroundColor: 'yellow',
+                        }}
+                    ></Button>
                 </Grid>
             </Grid>
         </Container>
