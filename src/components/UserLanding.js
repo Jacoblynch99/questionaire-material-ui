@@ -64,7 +64,7 @@ const UserLanding = (props) => {
         } else {
             setCombinations([
                 ...combinations,
-                <div item style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <div
                         style={{
                             height: '25px',
