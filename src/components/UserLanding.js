@@ -43,7 +43,7 @@ const UserLanding = (props) => {
         } else if (value === 'answer2') {
             setMessage('Your answer could reflect more on your stupidity')
         } else if (value === 'answer3') {
-            setMessage('Are you even trying?')
+            setMessage('Are you even trying?!')
         }
     }
 
