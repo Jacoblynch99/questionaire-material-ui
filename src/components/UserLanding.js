@@ -21,7 +21,7 @@ import {
     FormLabel,
     FormHelperText,
 } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const UserLanding = (props) => {
     const [value, setValue] = useState('white')
@@ -33,6 +33,10 @@ const UserLanding = (props) => {
     const [color2, setColor2] = useState('white')
     const [color3, setColor3] = useState('white')
     const [color4, setColor4] = useState('white')
+    const [condition1, setCondition1] = useState('red')
+    const [condition2, setCondition2] = useState('red')
+    const [condition3, setCondition3] = useState('red')
+    const [condition4, setCondition4] = useState('red')
     const [combinations, setCombinations] = useState([])
 
     const handleChange = (event) => {
@@ -41,7 +45,6 @@ const UserLanding = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('button hit')
 
         if (value === 'answer1') {
             setMessage('Not your brightest choice')
@@ -61,6 +64,13 @@ const UserLanding = (props) => {
             setColor3(color)
         } else if (color4 === 'white') {
             setColor4(color)
+        } else if (
+            color1 === condition1 &&
+            color2 === condition2 &&
+            color3 === condition3 &&
+            color4 === condition4
+        ) {
+            console.log('you win!!!')
         } else {
             setCombinations([
                 ...combinations,
