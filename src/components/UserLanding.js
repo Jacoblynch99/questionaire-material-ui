@@ -1,31 +1,17 @@
 import {
-    AppBar,
-    Box,
-    Select,
-    MenuItem,
     Button,
-    Typography,
-    Card,
-    CardContent,
-    CardActions,
-    Chip,
-    Dialog,
-    DialogTitle,
-    DialogActions,
     Container,
     Grid,
     RadioGroup,
     Radio,
     FormControl,
     FormControlLabel,
-    FormLabel,
-    FormHelperText,
 } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
 
 const UserLanding = (props) => {
     const [value, setValue] = useState('white')
-    const [pass, setPass] = useState(false)
+    // const [pass, setPass] = useState(false)
     const [message, setMessage] = useState(
         'Good morrow traveler, make the right choice or DIE'
     )
@@ -143,7 +129,7 @@ const UserLanding = (props) => {
         }
     }
 
-    const submitColor = (color) => {
+    const setColors = (color) => {
         if (color1 === 'white') {
             setColor1(color)
         } else if (color2 === 'white') {
@@ -152,7 +138,60 @@ const UserLanding = (props) => {
             setColor3(color)
         } else if (color4 === 'white') {
             setColor4(color)
+        }
+    }
+
+    const submitColor = () => {
+        // setting clue 1 here
+        if (color1 === condition1) {
+            setClue1('O')
         } else if (
+            color1 === condition2 ||
+            color1 === condition3 ||
+            color1 === condition4
+        ) {
+            setClue1('~')
+        } else {
+            setClue1('X')
+        }
+        // setting clue 2 here
+        if (color2 === condition2) {
+            setClue2('O')
+        } else if (
+            color2 === condition1 ||
+            color2 === condition3 ||
+            color2 === condition4
+        ) {
+            setClue2('~')
+        } else {
+            setClue2('X')
+        }
+        // setting clue 3 here
+        if (color3 === condition3) {
+            setClue3('O')
+        } else if (
+            color3 === condition2 ||
+            color3 === condition1 ||
+            color3 === condition4
+        ) {
+            setClue3('~')
+        } else {
+            setClue3('X')
+        }
+        // setting clue 4 here
+        if (color4 === condition4) {
+            setClue4('O')
+        } else if (
+            color4 === condition2 ||
+            color4 === condition1 ||
+            color4 === condition3
+        ) {
+            setClue4('~')
+        } else {
+            setClue4('X')
+        }
+
+        if (
             color1 === condition1 &&
             color2 === condition2 &&
             color3 === condition3 &&
@@ -199,6 +238,10 @@ const UserLanding = (props) => {
                             backgroundColor: color4,
                         }}
                     ></div>
+                    <div>{clue1}</div>
+                    <div>{clue2}</div>
+                    <div>{clue3}</div>
+                    <div>{clue4}</div>
                 </div>,
             ])
 
@@ -315,7 +358,7 @@ const UserLanding = (props) => {
                 </Grid>
                 <Grid item style={{ display: 'flex', flexDirection: 'row' }}>
                     <Button
-                        onClick={() => submitColor('red')}
+                        onClick={() => setColors('red')}
                         style={{
                             height: '50px',
                             width: '50px',
@@ -325,7 +368,7 @@ const UserLanding = (props) => {
                         }}
                     ></Button>
                     <Button
-                        onClick={() => submitColor('blue')}
+                        onClick={() => setColors('blue')}
                         style={{
                             height: '50px',
                             width: '50px',
@@ -335,7 +378,7 @@ const UserLanding = (props) => {
                         }}
                     ></Button>
                     <Button
-                        onClick={() => submitColor('green')}
+                        onClick={() => setColors('green')}
                         style={{
                             height: '50px',
                             width: '50px',
@@ -345,7 +388,7 @@ const UserLanding = (props) => {
                         }}
                     ></Button>
                     <Button
-                        onClick={() => submitColor('yellow')}
+                        onClick={() => setColors('yellow')}
                         style={{
                             height: '50px',
                             width: '50px',
@@ -354,6 +397,11 @@ const UserLanding = (props) => {
                             backgroundColor: 'yellow',
                         }}
                     ></Button>
+                </Grid>
+                <Grid item>
+                    <Button onClick={submitColor} style={{ color: 'black' }}>
+                        Submit
+                    </Button>
                 </Grid>
 
                 {combinations.map((item, idx) => (
