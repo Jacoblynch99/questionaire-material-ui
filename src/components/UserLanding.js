@@ -37,6 +37,10 @@ const UserLanding = (props) => {
     const [condition2, setCondition2] = useState('red')
     const [condition3, setCondition3] = useState('red')
     const [condition4, setCondition4] = useState('red')
+    const [clue1, setClue1] = useState('')
+    const [clue2, setClue2] = useState('')
+    const [clue3, setClue3] = useState('')
+    const [clue4, setClue4] = useState('')
     const [combinations, setCombinations] = useState([])
 
     useEffect(() => {
