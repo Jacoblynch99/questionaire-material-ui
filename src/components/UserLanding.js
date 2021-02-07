@@ -27,12 +27,19 @@ const UserLanding = (props) => {
     const [clue2, setClue2] = useState('')
     const [clue3, setClue3] = useState('')
     const [clue4, setClue4] = useState('')
+    const [maxRed, setMaxRed] = useState(0)
+    const [maxBlue, setMaxBlue] = useState(0)
+    const [maxYellow, setMaxYellow] = useState(0)
+    const [maxGreen, setMaxGreen] = useState(0)
     const [combinations, setCombinations] = useState([])
 
     useEffect(() => {
         createWinCondition()
     }, [])
 
+    useEffect(() => {
+        setClues()
+    })
     const handleChange = (event) => {
         setValue(event.target.value)
     }
@@ -141,7 +148,8 @@ const UserLanding = (props) => {
         }
     }
 
-    const submitColor = () => {
+    const setClues = () => {
+        console.log('function is running')
         // setting clue 1 here
         if (color1 === condition1) {
             setClue1('O')
@@ -190,6 +198,9 @@ const UserLanding = (props) => {
         } else {
             setClue4('X')
         }
+    }
+    const submitColor = () => {
+        // setting clue 1 here
 
         if (
             color1 === condition1 &&
