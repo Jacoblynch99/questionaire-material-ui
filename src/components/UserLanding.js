@@ -28,10 +28,10 @@ const UserLanding = (props) => {
     const [clue2, setClue2] = useState('')
     const [clue3, setClue3] = useState('')
     const [clue4, setClue4] = useState('')
-    const [maxRed, setMaxRed] = useState(0)
-    const [maxBlue, setMaxBlue] = useState(0)
-    const [maxYellow, setMaxYellow] = useState(0)
-    const [maxGreen, setMaxGreen] = useState(0)
+    const [maxRed, setMaxRed] = useState([0, 'red'])
+    const [maxBlue, setMaxBlue] = useState([0, 'blue'])
+    const [maxYellow, setMaxYellow] = useState([0, 'yellow'])
+    const [maxGreen, setMaxGreen] = useState([0, 'green'])
     const [combinations, setCombinations] = useState([])
 
     useEffect(() => {
@@ -77,25 +77,25 @@ const UserLanding = (props) => {
             case 0:
                 setCondition1('red')
                 red++
-                setMaxRed(red)
+                setMaxRed([red, 'red'])
                 console.log('first red')
                 break
             case 1:
                 setCondition1('blue')
                 blue++
-                setMaxBlue(blue)
+                setMaxBlue([blue, 'blue'])
                 console.log('first blue')
                 break
             case 2:
                 setCondition1('yellow')
                 yellow++
-                setMaxYellow(yellow)
+                setMaxYellow([yellow, 'yellow'])
                 console.log('first yellow')
                 break
             case 3:
                 setCondition1('green')
                 green++
-                setMaxGreen(green)
+                setMaxGreen([green, 'green'])
                 console.log('first green')
                 break
         }
@@ -103,25 +103,25 @@ const UserLanding = (props) => {
             case 0:
                 setCondition2('red')
                 red++
-                setMaxRed(red)
+                setMaxRed([red, 'red'])
                 console.log('second red')
                 break
             case 1:
                 setCondition2('blue')
                 blue++
-                setMaxBlue(blue)
+                setMaxBlue([blue, 'blue'])
                 console.log('second blue')
                 break
             case 2:
                 setCondition2('yellow')
                 yellow++
-                setMaxYellow(yellow)
+                setMaxYellow([yellow, 'yellow'])
                 console.log('second yellow')
                 break
             case 3:
                 setCondition2('green')
                 green++
-                setMaxGreen(green)
+                setMaxGreen([green, 'green'])
                 console.log('second green')
                 break
         }
@@ -129,25 +129,25 @@ const UserLanding = (props) => {
             case 0:
                 setCondition3('red')
                 red++
-                setMaxRed(red)
+                setMaxRed([red, 'red'])
                 console.log('third red')
                 break
             case 1:
                 setCondition3('blue')
                 blue++
-                setMaxBlue(blue)
+                setMaxBlue([blue, 'blue'])
                 console.log('third blue')
                 break
             case 2:
                 setCondition3('yellow')
                 yellow++
-                setMaxYellow(yellow)
+                setMaxYellow([yellow, 'yellow'])
                 console.log('third yellow')
                 break
             case 3:
                 setCondition3('green')
                 green++
-                setMaxBlue(green)
+                setMaxGreen([green, 'green'])
                 console.log('third green')
                 break
         }
@@ -155,25 +155,25 @@ const UserLanding = (props) => {
             case 0:
                 setCondition4('red')
                 red++
-                setMaxRed(red)
+                setMaxRed([red, 'red'])
                 console.log('fourth red')
                 break
             case 1:
                 setCondition4('blue')
                 blue++
-                setMaxBlue(blue)
+                setMaxBlue([blue, 'blue'])
                 console.log('fourth blue')
                 break
             case 2:
                 setCondition4('yellow')
                 yellow++
-                setMaxYellow(yellow)
+                setMaxYellow([yellow, 'yellow'])
                 console.log('fourth yellow')
                 break
             case 3:
                 setCondition4('green')
                 green++
-                setMaxGreen(green)
+                setMaxGreen([green, 'green'])
                 console.log('fourth green')
                 break
         }
@@ -194,6 +194,7 @@ const UserLanding = (props) => {
 
     const setClues = () => {
         // setting clue 1 here
+
         if (color1 === condition1) {
             setClue1('O')
         } else if (
