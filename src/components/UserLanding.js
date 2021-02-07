@@ -16,6 +16,8 @@ const UserLanding = (props) => {
     const [message, setMessage] = useState(
         'Good morrow traveler, make the right choice or DIE'
     )
+
+    // rework condition system
     const [color1, setColor1] = useState([0, 'white'])
     const [color2, setColor2] = useState([0, 'white'])
     const [color3, setColor3] = useState([0, 'white'])
