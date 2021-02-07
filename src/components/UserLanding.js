@@ -16,10 +16,10 @@ const UserLanding = (props) => {
     const [message, setMessage] = useState(
         'Good morrow traveler, make the right choice or DIE'
     )
-    const [color1, setColor1] = useState('white')
-    const [color2, setColor2] = useState('white')
-    const [color3, setColor3] = useState('white')
-    const [color4, setColor4] = useState('white')
+    const [color1, setColor1] = useState([0, 'white'])
+    const [color2, setColor2] = useState([0, 'white'])
+    const [color3, setColor3] = useState([0, 'white'])
+    const [color4, setColor4] = useState([0, 'white'])
     const [condition1, setCondition1] = useState('red')
     const [condition2, setCondition2] = useState('red')
     const [condition3, setCondition3] = useState('red')
@@ -180,63 +180,115 @@ const UserLanding = (props) => {
     }
 
     const setColors = (color) => {
+        let redCount = 0
+        let blueCount = 0
+        let greenCount = 0
+        let yellowCount = 0
         console.log(maxRed, maxGreen, maxYellow, maxBlue)
-        if (color1 === 'white') {
-            setColor1(color)
-        } else if (color2 === 'white') {
-            setColor2(color)
-        } else if (color3 === 'white') {
-            setColor3(color)
-        } else if (color4 === 'white') {
-            setColor4(color)
+        if (color1[1] === 'white') {
+            if (color === 'red') {
+                redCount++
+                setColor1([redCount, 'red'])
+            } else if (color === 'blue') {
+                blueCount++
+                setColor1([blueCount, 'blue'])
+            } else if (color === 'yellow') {
+                yellowCount++
+                setColor1([yellowCount, 'yellow'])
+            } else if (color === 'green') {
+                greenCount++
+                setColor1([greenCount, 'green'])
+            }
+        } else if (color2[1] === 'white') {
+            if (color === 'red') {
+                redCount++
+                setColor2([redCount, 'red'])
+            } else if (color === 'blue') {
+                blueCount++
+                setColor2([blueCount, 'blue'])
+            } else if (color === 'yellow') {
+                yellowCount++
+                setColor2([yellowCount, 'yellow'])
+            } else if (color === 'green') {
+                greenCount++
+                setColor2([greenCount, 'green'])
+            }
+        } else if (color3[1] === 'white') {
+            if (color === 'red') {
+                redCount++
+                setColor3([redCount, 'red'])
+            } else if (color === 'blue') {
+                blueCount++
+                setColor3([blueCount, 'blue'])
+            } else if (color === 'yellow') {
+                yellowCount++
+                setColor3([yellowCount, 'yellow'])
+            } else if (color === 'green') {
+                greenCount++
+                setColor3([greenCount, 'green'])
+            }
+        } else if (color4[1] === 'white') {
+            if (color === 'red') {
+                redCount++
+                setColor4([redCount, 'red'])
+            } else if (color === 'blue') {
+                blueCount++
+                setColor4([blueCount, 'blue'])
+            } else if (color === 'yellow') {
+                yellowCount++
+                setColor4([yellowCount, 'yellow'])
+            } else if (color === 'green') {
+                greenCount++
+                setColor4([greenCount, 'green'])
+            }
         }
     }
 
     const setClues = () => {
         // setting clue 1 here
 
-        if (color1 === condition1) {
+        if (color1[1] === condition1) {
             setClue1('O')
         } else if (
-            color1 === condition2 ||
-            color1 === condition3 ||
-            color1 === condition4
+            color1[1] === condition2 ||
+            color1[1] === condition3 ||
+            color1[1] === condition4
         ) {
             setClue1('~')
         } else {
             setClue1('X')
         }
         // setting clue 2 here
-        if (color2 === condition2) {
+        if (color2[1] === condition2) {
             setClue2('O')
         } else if (
-            color2 === condition1 ||
-            color2 === condition3 ||
-            color2 === condition4
+            color2[1] === condition1 ||
+            color2[1] === condition3 ||
+            color2[1] === condition4
         ) {
             setClue2('~')
         } else {
             setClue2('X')
         }
         // setting clue 3 here
-        if (color3 === condition3) {
+        if (color3[1] === condition3) {
             setClue3('O')
         } else if (
-            color3 === condition2 ||
-            color3 === condition1 ||
-            color3 === condition4
+            color3[1] === condition2 ||
+            color3[1] === condition1 ||
+            color3[1] === condition4
         ) {
             setClue3('~')
         } else {
             setClue3('X')
         }
         // setting clue 4 here
-        if (color4 === condition4) {
+        if (color4[1] === condition4) {
             setClue4('O')
         } else if (
-            color4 === condition2 ||
-            color4 === condition1 ||
-            color4 === condition3
+            color4[1] === condition2 ||
+            color4[1] === condition1 ||
+            color4[1] === condition3
         ) {
             setClue4('~')
         } else {
@@ -248,10 +300,10 @@ const UserLanding = (props) => {
         // setting clue 1 here
 
         if (
-            color1 === condition1 &&
-            color2 === condition2 &&
-            color3 === condition3 &&
-            color4 === condition4
+            color1[1] === condition1 &&
+            color2[1] === condition2 &&
+            color3[1] === condition3 &&
+            color4[1] === condition4
         ) {
             console.log('you win!!!')
         } else {
@@ -264,7 +316,7 @@ const UserLanding = (props) => {
                             width: '25px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color1,
+                            backgroundColor: color1[1],
                         }}
                     ></div>
                     <div
@@ -273,7 +325,7 @@ const UserLanding = (props) => {
                             width: '25px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color2,
+                            backgroundColor: color2[1],
                         }}
                     ></div>
                     <div
@@ -282,7 +334,7 @@ const UserLanding = (props) => {
                             width: '25px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color3,
+                            backgroundColor: color3[1],
                         }}
                     ></div>
                     <div
@@ -291,7 +343,7 @@ const UserLanding = (props) => {
                             width: '25px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color4,
+                            backgroundColor: color4[1],
                         }}
                     ></div>
                     <div>{clue1}</div>
@@ -301,10 +353,10 @@ const UserLanding = (props) => {
                 </div>,
             ])
 
-            setColor1('white')
-            setColor2('white')
-            setColor3('white')
-            setColor4('white')
+            setColor1([0, 'white'])
+            setColor2([0, 'white'])
+            setColor3([0, 'white'])
+            setColor4([0, 'white'])
         }
     }
 
@@ -381,7 +433,7 @@ const UserLanding = (props) => {
                             width: '100px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color1,
+                            backgroundColor: color1[1],
                         }}
                     ></div>
                     <div
@@ -390,7 +442,7 @@ const UserLanding = (props) => {
                             width: '100px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color2,
+                            backgroundColor: color2[1],
                         }}
                     ></div>
                     <div
@@ -399,7 +451,7 @@ const UserLanding = (props) => {
                             width: '100px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color3,
+                            backgroundColor: color3[1],
                         }}
                     ></div>
                     <div
@@ -408,7 +460,7 @@ const UserLanding = (props) => {
                             width: '100px',
                             borderStyle: 'solid',
                             margin: '5px',
-                            backgroundColor: color4,
+                            backgroundColor: color4[1],
                         }}
                     ></div>
                 </Grid>
