@@ -7,6 +7,7 @@ import {
     FormControl,
     FormControlLabel,
 } from '@material-ui/core'
+
 import React, { useState, useEffect } from 'react'
 
 const UserLanding = (props) => {
@@ -62,81 +63,124 @@ const UserLanding = (props) => {
         const third = Math.floor(Math.random() * 4)
         const fourth = Math.floor(Math.random() * 4)
 
+        // const first = 0
+        // const second = 0
+        // const third = 0
+        // const fourth = 0
+
+        let red = 0
+        let blue = 0
+        let yellow = 0
+        let green = 0
+
         switch (first) {
             case 0:
                 setCondition1('red')
+                red++
+                setMaxRed(red)
                 console.log('first red')
                 break
             case 1:
                 setCondition1('blue')
+                blue++
+                setMaxBlue(blue)
                 console.log('first blue')
                 break
             case 2:
                 setCondition1('yellow')
+                yellow++
+                setMaxYellow(yellow)
                 console.log('first yellow')
                 break
             case 3:
                 setCondition1('green')
+                green++
+                setMaxGreen(green)
                 console.log('first green')
                 break
         }
         switch (second) {
             case 0:
                 setCondition2('red')
+                red++
+                setMaxRed(red)
                 console.log('second red')
                 break
             case 1:
                 setCondition2('blue')
+                blue++
+                setMaxBlue(blue)
                 console.log('second blue')
                 break
             case 2:
                 setCondition2('yellow')
+                yellow++
+                setMaxYellow(yellow)
                 console.log('second yellow')
                 break
             case 3:
                 setCondition2('green')
+                green++
+                setMaxGreen(green)
                 console.log('second green')
                 break
         }
         switch (third) {
             case 0:
                 setCondition3('red')
+                red++
+                setMaxRed(red)
                 console.log('third red')
                 break
             case 1:
                 setCondition3('blue')
+                blue++
+                setMaxBlue(blue)
                 console.log('third blue')
                 break
             case 2:
                 setCondition3('yellow')
+                yellow++
+                setMaxYellow(yellow)
                 console.log('third yellow')
                 break
             case 3:
                 setCondition3('green')
+                green++
+                setMaxBlue(green)
                 console.log('third green')
                 break
         }
         switch (fourth) {
             case 0:
                 setCondition4('red')
+                red++
+                setMaxRed(red)
                 console.log('fourth red')
                 break
             case 1:
                 setCondition4('blue')
+                blue++
+                setMaxBlue(blue)
                 console.log('fourth blue')
                 break
             case 2:
                 setCondition4('yellow')
+                yellow++
+                setMaxYellow(yellow)
                 console.log('fourth yellow')
                 break
             case 3:
                 setCondition4('green')
+                green++
+                setMaxGreen(green)
                 console.log('fourth green')
                 break
         }
     }
 
     const setColors = (color) => {
+        console.log(maxRed, maxGreen, maxYellow, maxBlue)
         if (color1 === 'white') {
             setColor1(color)
         } else if (color2 === 'white') {
@@ -149,7 +193,6 @@ const UserLanding = (props) => {
     }
 
     const setClues = () => {
-        console.log('function is running')
         // setting clue 1 here
         if (color1 === condition1) {
             setClue1('O')
@@ -199,6 +242,7 @@ const UserLanding = (props) => {
             setClue4('X')
         }
     }
+
     const submitColor = () => {
         // setting clue 1 here
 
