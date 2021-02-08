@@ -30,16 +30,11 @@ const UserLanding = (props) => {
     const [clue2, setClue2] = useState('')
     const [clue3, setClue3] = useState('')
     const [clue4, setClue4] = useState('')
-    const [maxRed, setMaxRed] = useState([0, 'red'])
-    const [maxBlue, setMaxBlue] = useState([0, 'blue'])
-    const [maxYellow, setMaxYellow] = useState([0, 'yellow'])
-    const [maxGreen, setMaxGreen] = useState([0, 'green'])
+    const [maxRed, setMaxRed] = useState(0)
+    const [maxBlue, setMaxBlue] = useState(0)
+    const [maxYellow, setMaxYellow] = useState(0)
+    const [maxGreen, setMaxGreen] = useState(0)
     const [combinations, setCombinations] = useState([])
-    let attempt = false
-    let redCount = 0
-    let blueCount = 0
-    let greenCount = 0
-    let yellowCount = 0
 
     useEffect(() => {
         createWinCondition()
@@ -187,14 +182,6 @@ const UserLanding = (props) => {
     }
 
     const setColors = (color) => {
-        if (attempt === true) {
-            // redCount = 0
-            // blueCount = 0
-            // greenCount = 0
-            // yellowCount = 0
-            attempt = false
-        }
-
         if (color1[1] === 'white') {
             if (color === 'red') {
                 redCount++
