@@ -35,6 +35,11 @@ const UserLanding = (props) => {
     const [maxYellow, setMaxYellow] = useState([0, 'yellow'])
     const [maxGreen, setMaxGreen] = useState([0, 'green'])
     const [combinations, setCombinations] = useState([])
+    let attempt = false
+    let redCount = 0
+    let blueCount = 0
+    let greenCount = 0
+    let yellowCount = 0
 
     useEffect(() => {
         createWinCondition()
@@ -98,7 +103,7 @@ const UserLanding = (props) => {
                 green++
                 setCondition1([green, 'green'])
                 setMaxGreen([green, 'green'])
-                console.log('first green')
+                console.log('green')
                 break
         }
         switch (second) {
@@ -124,7 +129,7 @@ const UserLanding = (props) => {
                 green++
                 setCondition2([green, 'green'])
                 setMaxGreen([green, 'green'])
-                console.log('first green')
+                console.log('green')
                 break
         }
         switch (third) {
@@ -150,7 +155,7 @@ const UserLanding = (props) => {
                 green++
                 setCondition3([green, 'green'])
                 setMaxGreen([green, 'green'])
-                console.log('first green')
+                console.log('green')
                 break
         }
         switch (fourth) {
@@ -176,17 +181,20 @@ const UserLanding = (props) => {
                 green++
                 setCondition4([green, 'green'])
                 setMaxGreen([green, 'green'])
-                console.log('first green')
+                console.log('green')
                 break
         }
     }
 
     const setColors = (color) => {
-        let redCount = 0
-        let blueCount = 0
-        let greenCount = 0
-        let yellowCount = 0
-        console.log(maxRed, maxGreen, maxYellow, maxBlue)
+        if (attempt === true) {
+            // redCount = 0
+            // blueCount = 0
+            // greenCount = 0
+            // yellowCount = 0
+            attempt = false
+        }
+
         if (color1[1] === 'white') {
             if (color === 'red') {
                 redCount++
@@ -243,54 +251,56 @@ const UserLanding = (props) => {
                 greenCount++
                 setColor4([greenCount, 'green'])
             }
+            attempt = true
         }
+        console.log(redCount, blueCount, yellowCount, greenCount)
     }
 
     const setClues = () => {
         // setting clue 1 here
 
-        if (color1[1] === condition1) {
+        if (color1[1] === condition1[1] && color1[0] === condition1[0]) {
             setClue1('O')
         } else if (
-            color1[1] === condition2 ||
-            color1[1] === condition3 ||
-            color1[1] === condition4
+            color1[1] === condition2[1] ||
+            color1[1] === condition3[1] ||
+            color1[1] === condition4[1]
         ) {
             setClue1('~')
         } else {
             setClue1('X')
         }
         // setting clue 2 here
-        if (color2[1] === condition2) {
+        if (color2[1] === condition2[1]) {
             setClue2('O')
         } else if (
-            color2[1] === condition1 ||
-            color2[1] === condition3 ||
-            color2[1] === condition4
+            color2[1] === condition1[1] ||
+            color2[1] === condition3[1] ||
+            color2[1] === condition4[1]
         ) {
             setClue2('~')
         } else {
             setClue2('X')
         }
         // setting clue 3 here
-        if (color3[1] === condition3) {
+        if (color3[1] === condition3[1]) {
             setClue3('O')
         } else if (
-            color3[1] === condition2 ||
-            color3[1] === condition1 ||
-            color3[1] === condition4
+            color3[1] === condition2[1] ||
+            color3[1] === condition1[1] ||
+            color3[1] === condition4[1]
         ) {
             setClue3('~')
         } else {
             setClue3('X')
         }
         // setting clue 4 here
-        if (color4[1] === condition4) {
+        if (color4[1] === condition4[1]) {
             setClue4('O')
         } else if (
-            color4[1] === condition2 ||
-            color4[1] === condition1 ||
-            color4[1] === condition3
+            color4[1] === condition2[1] ||
+            color4[1] === condition1[1] ||
+            color4[1] === condition3[1]
         ) {
             setClue4('~')
         } else {
