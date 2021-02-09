@@ -36,6 +36,13 @@ const UserLanding = (props) => {
     const [maxGreen, setMaxGreen] = useState(0)
     const [combinations, setCombinations] = useState([])
 
+    let redCount = 0
+    let greenCount = 0
+    let blueCount = 0
+    let yellowCount = 0
+
+    let attempt = 'not active'
+
     useEffect(() => {
         createWinCondition()
     }, [])
@@ -182,6 +189,13 @@ const UserLanding = (props) => {
     }
 
     const setColors = (color) => {
+        if (attempt === 'active') {
+            redCount = 0
+            blueCount = 0
+            yellowCount = 0
+            greenCount = 0
+            attempt = 'not active'
+        }
         if (color1[1] === 'white') {
             if (color === 'red') {
                 redCount++
@@ -238,7 +252,6 @@ const UserLanding = (props) => {
                 greenCount++
                 setColor4([greenCount, 'green'])
             }
-            attempt = true
         }
         console.log(redCount, blueCount, yellowCount, greenCount)
     }
@@ -357,6 +370,7 @@ const UserLanding = (props) => {
             setColor3([0, 'white'])
             setColor4([0, 'white'])
         }
+        attempt = 'active'
     }
 
     return (
