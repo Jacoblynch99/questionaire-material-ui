@@ -194,7 +194,6 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor1([0, 'green'])
             }
-            setClues()
         } else if (color2[1] === 'white') {
             if (color === 'red') {
                 setColor2([0, 'red'])
@@ -205,7 +204,6 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor2([0, 'green'])
             }
-            setClues()
         } else if (color3[1] === 'white') {
             if (color === 'red') {
                 setColor3([0, 'red'])
@@ -216,7 +214,6 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor3([0, 'green'])
             }
-            setClues()
         } else if (color4[1] === 'white') {
             if (color === 'red') {
                 setColor4([0, 'red'])
@@ -227,76 +224,125 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor4([0, 'green'])
             }
-            setClues()
         }
     }
 
     const setClues = () => {
-        const answerArr = [
-            condition1[1],
-            condition2[1],
-            condition3[1],
-            condition4[1],
-        ]
+        const answerArr = [condition1, condition2, condition3, condition4]
         const guessArr = [color1[1], color2[1], color3[1], color4[1]]
-        for (let i = 0; i < 1; i++) {
-            console.log(answerArr)
-            console.log(guessArr)
+        let yellowCount = 0
+        let redCount = 0
+        let blueCount = 0
+        let greenCount = 0
+        const clueArr = []
+
+        for (let i = 0; i < answerArr.length; i++) {
+            if (guessArr[i] === 'red') {
+                redCount++
+            } else if (guessArr[i] === 'blue') {
+                blueCount++
+            } else if (guessArr[i] === 'green') {
+                greenCount++
+            } else if (guessArr[i] === 'yellow') {
+                yellowCount++
+            }
         }
+
+        for (let i = 0; i < answerArr.length; i++) {
+            if (guessArr[i] === answerArr[i][1]) {
+                clueArr.push('O')
+            }
+            console.log(answerArr[i][0])
+
+            if (
+                answerArr[i] === 'red' &&
+                guessArr[i] != 'red' &&
+                redCount <= answerArr[i][0]
+            ) {
+                clueArr.push('~')
+            }
+
+            if (
+                answerArr[i] === 'blue' &&
+                guessArr[i] != 'blue' &&
+                blueCount <= answerArr[i][0]
+            ) {
+                clueArr.push('~')
+            }
+
+            if (
+                answerArr[i] === 'green' &&
+                guessArr[i] != 'green' &&
+                greenCount <= answerArr[i][0]
+            ) {
+                clueArr.push('~')
+            }
+
+            if (
+                answerArr[i] === 'yellow' &&
+                guessArr[i] != 'yellow' &&
+                yellowCount <= answerArr[i][0]
+            ) {
+                clueArr.push('~')
+            }
+        }
+        return clueArr
 
         // setting clue 1 here
 
-        if (color1[1] === condition1[1] && color1[0] === condition1[0]) {
-            setClue1('O')
-        } else if (
-            color1[1] === condition2[1] ||
-            color1[1] === condition3[1] ||
-            color1[1] === condition4[1]
-        ) {
-            setClue1('~')
-        } else {
-            setClue1('X')
-        }
-        // setting clue 2 here
-        if (color2[1] === condition2[1]) {
-            setClue2('O')
-        } else if (
-            color2[1] === condition1[1] ||
-            color2[1] === condition3[1] ||
-            color2[1] === condition4[1]
-        ) {
-            setClue2('~')
-        } else {
-            setClue2('X')
-        }
-        // setting clue 3 here
-        if (color3[1] === condition3[1]) {
-            setClue3('O')
-        } else if (
-            color3[1] === condition2[1] ||
-            color3[1] === condition1[1] ||
-            color3[1] === condition4[1]
-        ) {
-            setClue3('~')
-        } else {
-            setClue3('X')
-        }
-        // setting clue 4 here
-        if (color4[1] === condition4[1]) {
-            setClue4('O')
-        } else if (
-            color4[1] === condition2[1] ||
-            color4[1] === condition1[1] ||
-            color4[1] === condition3[1]
-        ) {
-            setClue4('~')
-        } else {
-            setClue4('X')
-        }
+        // if (color1[1] === condition1[1] && color1[0] === condition1[0]) {
+        //     setClue1('O')
+        // } else if (
+        //     color1[1] === condition2[1] ||
+        //     color1[1] === condition3[1] ||
+        //     color1[1] === condition4[1]
+        // ) {
+        //     setClue1('~')
+        // } else {
+        //     setClue1('X')
+        // }
+        // // setting clue 2 here
+        // if (color2[1] === condition2[1]) {
+        //     setClue2('O')
+        // } else if (
+        //     color2[1] === condition1[1] ||
+        //     color2[1] === condition3[1] ||
+        //     color2[1] === condition4[1]
+        // ) {
+        //     setClue2('~')
+        // } else {
+        //     setClue2('X')
+        // }
+        // // setting clue 3 here
+        // if (color3[1] === condition3[1]) {
+        //     setClue3('O')
+        // } else if (
+        //     color3[1] === condition2[1] ||
+        //     color3[1] === condition1[1] ||
+        //     color3[1] === condition4[1]
+        // ) {
+        //     setClue3('~')
+        // } else {
+        //     setClue3('X')
+        // }
+        // // setting clue 4 here
+        // if (color4[1] === condition4[1]) {
+        //     setClue4('O')
+        // } else if (
+        //     color4[1] === condition2[1] ||
+        //     color4[1] === condition1[1] ||
+        //     color4[1] === condition3[1]
+        // ) {
+        //     setClue4('~')
+        // } else {
+        //     setClue4('X')
+        // }
     }
 
     const submitColor = () => {
         // setting clue 1 here
+
+        let clues = setClues()
 
         if (
             color1[1] === condition1 &&
@@ -345,10 +391,7 @@ const UserLanding = (props) => {
                             backgroundColor: color4[1],
                         }}
                     ></div>
-                    <div>{clue1}</div>
-                    <div>{clue2}</div>
-                    <div>{clue3}</div>
-                    <div>{clue4}</div>
+                    <div>{clues}</div>
                 </div>,
             ])
 
