@@ -249,41 +249,37 @@ const UserLanding = (props) => {
         }
 
         for (let i = 0; i < answerArr.length; i++) {
-            if (guessArr[i] === answerArr[i][1]) {
-                clueArr.push('O')
-            }
             console.log(answerArr[i][0])
 
-            if (
-                answerArr[i] === 'red' &&
-                guessArr[i] != 'red' &&
-                redCount <= answerArr[i][0]
+            if (guessArr[i] === answerArr[i][1]) {
+                clueArr.push('O')
+            } else if (
+                guessArr[i] === 'red' &&
+                answerArr[i][1] != guessArr[i]
             ) {
                 clueArr.push('~')
-            }
-
-            if (
-                answerArr[i] === 'blue' &&
-                guessArr[i] != 'blue' &&
-                blueCount <= answerArr[i][0]
+            } else if (
+                guessArr[i] === 'blue' &&
+                answerArr[i][1] != guessArr[i]
             ) {
                 clueArr.push('~')
-            }
-
-            if (
-                answerArr[i] === 'green' &&
-                guessArr[i] != 'green' &&
-                greenCount <= answerArr[i][0]
+            } else if (
+                guessArr[i] === 'green' &&
+                answerArr[i][1] != guessArr[i]
             ) {
                 clueArr.push('~')
-            }
-
-            if (
-                answerArr[i] === 'yellow' &&
-                guessArr[i] != 'yellow' &&
-                yellowCount <= answerArr[i][0]
+            } else if (
+                guessArr[i] === 'yellow' &&
+                answerArr[i][1] != guessArr[i]
             ) {
                 clueArr.push('~')
+            } else if (
+                guessArr[i] != answerArr[0] &&
+                guessArr[i] != answerArr[1] &&
+                guessArr[i] != answerArr[2] &&
+                guessArr[i] != answerArr[3]
+            ) {
+                clueArr.push('X')
             }
         }
         return clueArr
