@@ -26,17 +26,17 @@ const UserLanding = (props) => {
     const [condition2, setCondition2] = useState([0, 'red'])
     const [condition3, setCondition3] = useState([0, 'red'])
     const [condition4, setCondition4] = useState([0, 'red'])
-    const [clue1, setClue1] = useState('')
-    const [clue2, setClue2] = useState('')
-    const [clue3, setClue3] = useState('')
-    const [clue4, setClue4] = useState('')
-    const [maxRed, setMaxRed] = useState(0)
-    const [maxBlue, setMaxBlue] = useState(0)
-    const [maxYellow, setMaxYellow] = useState(0)
-    const [maxGreen, setMaxGreen] = useState(0)
+    // const [clue1, setClue1] = useState('')
+    // const [clue2, setClue2] = useState('')
+    // const [clue3, setClue3] = useState('')
+    // const [clue4, setClue4] = useState('')
+    // const [maxRed, setMaxRed] = useState(0)
+    // const [maxBlue, setMaxBlue] = useState(0)
+    // const [maxYellow, setMaxYellow] = useState(0)
+    // const [maxGreen, setMaxGreen] = useState(0)
     const [combinations, setCombinations] = useState([])
 
-    let attempt = 'active'
+    // let attempt = 'active'
 
     useEffect(() => {
         createWinCondition()
@@ -62,15 +62,15 @@ const UserLanding = (props) => {
     }
 
     const createWinCondition = () => {
-        const first = Math.floor(Math.random() * 4)
-        const second = Math.floor(Math.random() * 4)
-        const third = Math.floor(Math.random() * 4)
-        const fourth = Math.floor(Math.random() * 4)
+        // const first = Math.floor(Math.random() * 4)
+        // const second = Math.floor(Math.random() * 4)
+        // const third = Math.floor(Math.random() * 4)
+        // const fourth = Math.floor(Math.random() * 4)
 
-        // const first = 0
-        // const second = 0
-        // const third = 0
-        // const fourth = 0
+        const first = 0
+        const second = 0
+        const third = 1
+        const fourth = 1
 
         let red = 0
         let blue = 0
@@ -81,104 +81,116 @@ const UserLanding = (props) => {
             case 0:
                 red++
                 setCondition1([red, 'red'])
-                setMaxRed([red, 'red'])
+                // setMaxRed([red, 'red'])
                 console.log('red')
                 break
             case 1:
                 blue++
                 setCondition1([blue, 'blue'])
-                setMaxBlue([blue, 'blue'])
+                // setMaxBlue([blue, 'blue'])
                 console.log('blue')
                 break
             case 2:
                 yellow++
                 setCondition1([yellow, 'yellow'])
-                setMaxYellow([yellow, 'yellow'])
+                // setMaxYellow([yellow, 'yellow'])
                 console.log('yellow')
                 break
             case 3:
                 green++
                 setCondition1([green, 'green'])
-                setMaxGreen([green, 'green'])
+                // setMaxGreen([green, 'green'])
                 console.log('green')
+                break
+            default:
+                console.log('ruh roo raggy')
                 break
         }
         switch (second) {
             case 0:
                 red++
                 setCondition2([red, 'red'])
-                setMaxRed([red, 'red'])
+                // setMaxRed([red, 'red'])
                 console.log('red')
                 break
             case 1:
                 blue++
                 setCondition2([blue, 'blue'])
-                setMaxBlue([blue, 'blue'])
+                // setMaxBlue([blue, 'blue'])
                 console.log('blue')
                 break
             case 2:
                 yellow++
                 setCondition2([yellow, 'yellow'])
-                setMaxYellow([yellow, 'yellow'])
+                // setMaxYellow([yellow, 'yellow'])
                 console.log('yellow')
                 break
             case 3:
                 green++
                 setCondition2([green, 'green'])
-                setMaxGreen([green, 'green'])
+                // setMaxGreen([green, 'green'])
                 console.log('green')
+                break
+            default:
+                console.log('ruh roo raggy')
                 break
         }
         switch (third) {
             case 0:
                 red++
                 setCondition3([red, 'red'])
-                setMaxRed([red, 'red'])
+                // setMaxRed([red, 'red'])
                 console.log('red')
                 break
             case 1:
                 blue++
                 setCondition3([blue, 'blue'])
-                setMaxBlue([blue, 'blue'])
+                // setMaxBlue([blue, 'blue'])
                 console.log('blue')
                 break
             case 2:
                 yellow++
                 setCondition3([yellow, 'yellow'])
-                setMaxYellow([yellow, 'yellow'])
+                // setMaxYellow([yellow, 'yellow'])
                 console.log('yellow')
                 break
             case 3:
                 green++
                 setCondition3([green, 'green'])
-                setMaxGreen([green, 'green'])
+                // setMaxGreen([green, 'green'])
                 console.log('green')
+                break
+            default:
+                console.log('ruh roo raggy')
                 break
         }
         switch (fourth) {
             case 0:
                 red++
                 setCondition4([red, 'red'])
-                setMaxRed([red, 'red'])
+                // setMaxRed([red, 'red'])
                 console.log('red')
                 break
             case 1:
                 blue++
                 setCondition4([blue, 'blue'])
-                setMaxBlue([blue, 'blue'])
+                // setMaxBlue([blue, 'blue'])
                 console.log('blue')
                 break
             case 2:
                 yellow++
                 setCondition4([yellow, 'yellow'])
-                setMaxYellow([yellow, 'yellow'])
+                // setMaxYellow([yellow, 'yellow'])
                 console.log('yellow')
                 break
             case 3:
                 green++
                 setCondition4([green, 'green'])
-                setMaxGreen([green, 'green'])
+                // setMaxGreen([green, 'green'])
                 console.log('green')
+                break
+            default:
+                console.log('ruh roo raggy')
                 break
         }
     }
@@ -245,33 +257,33 @@ const UserLanding = (props) => {
                 clueArr.push('O')
             } else if (
                 guessArr[i] === 'red' &&
-                answerArr[i][1] != guessArr[i] &&
+                answerArr[i][1] !== guessArr[i] &&
                 redCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
                 guessArr[i] === 'blue' &&
-                answerArr[i][1] != guessArr[i] &&
+                answerArr[i][1] !== guessArr[i] &&
                 blueCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
                 guessArr[i] === 'green' &&
-                answerArr[i][1] != guessArr[i] &&
+                answerArr[i][1] !== guessArr[i] &&
                 greenCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
                 guessArr[i] === 'yellow' &&
-                answerArr[i][1] != guessArr[i] &&
+                answerArr[i][1] !== guessArr[i] &&
                 yellowCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
-                guessArr[i] != answerArr[0] &&
-                guessArr[i] != answerArr[1] &&
-                guessArr[i] != answerArr[2] &&
-                guessArr[i] != answerArr[3]
+                guessArr[i] !== answerArr[0] &&
+                guessArr[i] !== answerArr[1] &&
+                guessArr[i] !== answerArr[2] &&
+                guessArr[i] !== answerArr[3]
             ) {
                 clueArr.push('X')
             }
@@ -399,7 +411,6 @@ const UserLanding = (props) => {
             setColor3([0, 'white'])
             setColor4([0, 'white'])
         }
-        attempt = 'active'
     }
 
     return (
