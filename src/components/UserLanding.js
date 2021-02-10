@@ -36,12 +36,7 @@ const UserLanding = (props) => {
     const [maxGreen, setMaxGreen] = useState(0)
     const [combinations, setCombinations] = useState([])
 
-    let redCount = 0
-    let greenCount = 0
-    let blueCount = 0
-    let yellowCount = 0
-
-    let attempt = 'not active'
+    let attempt = 'active'
 
     useEffect(() => {
         createWinCondition()
@@ -189,71 +184,47 @@ const UserLanding = (props) => {
     }
 
     const setColors = (color) => {
-        if (attempt === 'active') {
-            redCount = 0
-            blueCount = 0
-            yellowCount = 0
-            greenCount = 0
-            attempt = 'not active'
-        }
         if (color1[1] === 'white') {
             if (color === 'red') {
-                redCount++
-                setColor1([redCount, 'red'])
+                setColor1([0, 'red'])
             } else if (color === 'blue') {
-                blueCount++
-                setColor1([blueCount, 'blue'])
+                setColor1([0, 'blue'])
             } else if (color === 'yellow') {
-                yellowCount++
-                setColor1([yellowCount, 'yellow'])
+                setColor1([0, 'yellow'])
             } else if (color === 'green') {
-                greenCount++
-                setColor1([greenCount, 'green'])
+                setColor1([0, 'green'])
             }
         } else if (color2[1] === 'white') {
             if (color === 'red') {
-                redCount++
-                setColor2([redCount, 'red'])
+                setColor2([0, 'red'])
             } else if (color === 'blue') {
-                blueCount++
-                setColor2([blueCount, 'blue'])
+                setColor2([0, 'blue'])
             } else if (color === 'yellow') {
-                yellowCount++
-                setColor2([yellowCount, 'yellow'])
+                setColor2([0, 'yellow'])
             } else if (color === 'green') {
-                greenCount++
-                setColor2([greenCount, 'green'])
+                setColor2([0, 'green'])
             }
         } else if (color3[1] === 'white') {
             if (color === 'red') {
-                redCount++
-                setColor3([redCount, 'red'])
+                setColor3([0, 'red'])
             } else if (color === 'blue') {
-                blueCount++
-                setColor3([blueCount, 'blue'])
+                setColor3([0, 'blue'])
             } else if (color === 'yellow') {
-                yellowCount++
-                setColor3([yellowCount, 'yellow'])
+                setColor3([0, 'yellow'])
             } else if (color === 'green') {
-                greenCount++
-                setColor3([greenCount, 'green'])
+                setColor3([0, 'green'])
             }
         } else if (color4[1] === 'white') {
             if (color === 'red') {
-                redCount++
-                setColor4([redCount, 'red'])
+                setColor4([0, 'red'])
             } else if (color === 'blue') {
-                blueCount++
-                setColor4([blueCount, 'blue'])
+                setColor4([0, 'blue'])
             } else if (color === 'yellow') {
-                yellowCount++
-                setColor4([yellowCount, 'yellow'])
+                setColor4([0, 'yellow'])
             } else if (color === 'green') {
-                greenCount++
-                setColor4([greenCount, 'green'])
+                setColor4([0, 'green'])
             }
         }
-        console.log(redCount, blueCount, yellowCount, greenCount)
     }
 
     const setClues = () => {
