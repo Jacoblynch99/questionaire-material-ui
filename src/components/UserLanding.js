@@ -236,41 +236,35 @@ const UserLanding = (props) => {
         let greenCount = 0
         const clueArr = []
 
-        for (let i = 0; i < answerArr.length; i++) {
-            if (guessArr[i] === 'red') {
-                redCount++
-            } else if (guessArr[i] === 'blue') {
-                blueCount++
-            } else if (guessArr[i] === 'green') {
-                greenCount++
-            } else if (guessArr[i] === 'yellow') {
-                yellowCount++
-            }
-        }
+        // for (let i = 0; i < answerArr.length; i++) {
+
+        // }
 
         for (let i = 0; i < answerArr.length; i++) {
-            console.log(answerArr[i][0])
-
             if (guessArr[i] === answerArr[i][1]) {
                 clueArr.push('O')
             } else if (
                 guessArr[i] === 'red' &&
-                answerArr[i][1] != guessArr[i]
+                answerArr[i][1] != guessArr[i] &&
+                redCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
                 guessArr[i] === 'blue' &&
-                answerArr[i][1] != guessArr[i]
+                answerArr[i][1] != guessArr[i] &&
+                blueCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
                 guessArr[i] === 'green' &&
-                answerArr[i][1] != guessArr[i]
+                answerArr[i][1] != guessArr[i] &&
+                greenCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
                 guessArr[i] === 'yellow' &&
-                answerArr[i][1] != guessArr[i]
+                answerArr[i][1] != guessArr[i] &&
+                yellowCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
             } else if (
@@ -280,6 +274,15 @@ const UserLanding = (props) => {
                 guessArr[i] != answerArr[3]
             ) {
                 clueArr.push('X')
+            }
+            if (guessArr[i] === 'red') {
+                redCount++
+            } else if (guessArr[i] === 'blue') {
+                blueCount++
+            } else if (guessArr[i] === 'green') {
+                greenCount++
+            } else if (guessArr[i] === 'yellow') {
+                yellowCount++
             }
         }
         return clueArr
