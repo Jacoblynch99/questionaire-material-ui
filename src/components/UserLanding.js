@@ -42,9 +42,9 @@ const UserLanding = (props) => {
         createWinCondition()
     }, [])
 
-    useEffect(() => {
-        setClues()
-    })
+    // useEffect(() => {
+    //     setClues()
+    // })
     const handleChange = (event) => {
         setValue(event.target.value)
     }
@@ -194,6 +194,7 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor1([0, 'green'])
             }
+            setClues()
         } else if (color2[1] === 'white') {
             if (color === 'red') {
                 setColor2([0, 'red'])
@@ -204,6 +205,7 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor2([0, 'green'])
             }
+            setClues()
         } else if (color3[1] === 'white') {
             if (color === 'red') {
                 setColor3([0, 'red'])
@@ -214,6 +216,7 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor3([0, 'green'])
             }
+            setClues()
         } else if (color4[1] === 'white') {
             if (color === 'red') {
                 setColor4([0, 'red'])
@@ -224,10 +227,23 @@ const UserLanding = (props) => {
             } else if (color === 'green') {
                 setColor4([0, 'green'])
             }
+            setClues()
         }
     }
 
     const setClues = () => {
+        const answerArr = [
+            condition1[1],
+            condition2[1],
+            condition3[1],
+            condition4[1],
+        ]
+        const guessArr = [color1[1], color2[1], color3[1], color4[1]]
+        for (let i = 0; i < 1; i++) {
+            console.log(answerArr)
+            console.log(guessArr)
+        }
+
         // setting clue 1 here
 
         if (color1[1] === condition1[1] && color1[0] === condition1[0]) {
