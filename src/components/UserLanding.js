@@ -261,12 +261,18 @@ const UserLanding = (props) => {
                 redCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
+                console.log(
+                    `red guess: ${redCount}/ red answer: ${answerArr[i]}`
+                )
             } else if (
                 guessArr[i] === 'blue' &&
                 answerArr[i][1] !== guessArr[i] &&
                 blueCount < answerArr[i][0]
             ) {
                 clueArr.push('~')
+                console.log(
+                    `blue guess: ${blueCount}/ blue answer: ${answerArr[i]}`
+                )
             } else if (
                 guessArr[i] === 'green' &&
                 answerArr[i][1] !== guessArr[i] &&
