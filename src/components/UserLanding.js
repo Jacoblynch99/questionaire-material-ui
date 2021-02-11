@@ -253,55 +253,56 @@ const UserLanding = (props) => {
         // }
 
         for (let i = 0; i < answerArr.length; i++) {
-            if (guessArr[i] === answerArr[i][1]) {
-                clueArr.push('O')
-            } else if (
-                guessArr[i] === 'red' &&
-                answerArr[i][1] !== guessArr[i] &&
-                redCount < answerArr[i][0]
-            ) {
-                clueArr.push('~')
-                console.log(
-                    `red guess: ${redCount}/ red answer: ${answerArr[i]}`
-                )
-            } else if (
-                guessArr[i] === 'blue' &&
-                answerArr[i][1] !== guessArr[i] &&
-                blueCount < answerArr[i][0]
-            ) {
-                clueArr.push('~')
-                console.log(
-                    `blue guess: ${blueCount}/ blue answer: ${answerArr[i]}`
-                )
-            } else if (
-                guessArr[i] === 'green' &&
-                answerArr[i][1] !== guessArr[i] &&
-                greenCount < answerArr[i][0]
-            ) {
-                clueArr.push('~')
-            } else if (
-                guessArr[i] === 'yellow' &&
-                answerArr[i][1] !== guessArr[i] &&
-                yellowCount < answerArr[i][0]
-            ) {
-                clueArr.push('~')
-            } else if (
-                guessArr[i] !== answerArr[0] &&
-                guessArr[i] !== answerArr[1] &&
-                guessArr[i] !== answerArr[2] &&
-                guessArr[i] !== answerArr[3]
-            ) {
-                clueArr.push('X')
-            }
-            if (guessArr[i] === 'red') {
-                redCount++
-            } else if (guessArr[i] === 'blue') {
-                blueCount++
-            } else if (guessArr[i] === 'green') {
-                greenCount++
-            } else if (guessArr[i] === 'yellow') {
-                yellowCount++
-            }
+            for (let j = i; j < answerArr.length; j++) {}
+            //     if (guessArr[i] === answerArr[i][1]) {
+            //         clueArr.push('O')
+            //     } else if (
+            //         guessArr[i] === 'red' &&
+            //         answerArr[i][1] !== guessArr[i] &&
+            //         redCount < answerArr[i][0]
+            //     ) {
+            //         clueArr.push('~')
+            //         console.log(
+            //             `red guess: ${redCount}/ red answer: ${answerArr[i]}`
+            //         )
+            //     } else if (
+            //         guessArr[i] === 'blue' &&
+            //         answerArr[i][1] !== guessArr[i] &&
+            //         blueCount < answerArr[i][0]
+            //     ) {
+            //         clueArr.push('~')
+            //         console.log(
+            //             `blue guess: ${blueCount}/ blue answer: ${answerArr[i]}`
+            //         )
+            //     } else if (
+            //         guessArr[i] === 'green' &&
+            //         answerArr[i][1] !== guessArr[i] &&
+            //         greenCount < answerArr[i][0]
+            //     ) {
+            //         clueArr.push('~')
+            //     } else if (
+            //         guessArr[i] === 'yellow' &&
+            //         answerArr[i][1] !== guessArr[i] &&
+            //         yellowCount < answerArr[i][0]
+            //     ) {
+            //         clueArr.push('~')
+            //     } else if (
+            //         guessArr[i] !== answerArr[0] &&
+            //         guessArr[i] !== answerArr[1] &&
+            //         guessArr[i] !== answerArr[2] &&
+            //         guessArr[i] !== answerArr[3]
+            //     ) {
+            //         clueArr.push('X')
+            //     }
+            //     if (guessArr[i] === 'red') {
+            //         redCount++
+            //     } else if (guessArr[i] === 'blue') {
+            //         blueCount++
+            //     } else if (guessArr[i] === 'green') {
+            //         greenCount++
+            //     } else if (guessArr[i] === 'yellow') {
+            //         yellowCount++
+            //     }
         }
         return clueArr
 
